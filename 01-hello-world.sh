@@ -2,8 +2,8 @@
 
 echo "Hello world Devops"
 
-PERSON1=Ramesh
+PERSON1=vishu
 PERSON2=Suresh
 
-echo "Ramesh: Hi $PERSON2"
+echo "$PERSON1: Hi $PERSON2"
 echo "Hi $PERSON1"
