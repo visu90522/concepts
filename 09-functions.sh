@@ -1,6 +1,8 @@
 #!/bin/bash
 
-USERID=$(id -u)
+DATE=$(date +%F)
+SCRIPT_NAME=$0
+LOGFILE=/tmp/$SCRIPT_NAME-$DATE.log
 
 # this function should validate the previous command and inform user it is success or failure
 VALIDATE() {
@@ -14,6 +16,12 @@ else
 fi
 }
 
+R="\e[31m"
+G="\e[32m"
+N="\e[0m"
+
+USERID=$(id -u)
+
 if [ $USERID -ne 0 ]
 then
   echo "ERROR:: please run with root user"
@@ -23,10 +31,10 @@ then
 fi
 
 # it is our responsibility again to check installation is success or not
-yum install mysql -y
+yum install mysql -y &>>$LOGFILE
 
 VALIDATE $? "Installing MySQL"
 
-yum install postfix -y
+yum install postfix -y &>>$LOGFILE
 
 VALIDATE $? "Installing Postfix"
