@@ -2,10 +2,10 @@
 VALIDATE() {
     if [ $1 -ne 0 ]
     then
-        echo "Installation .... failure"
+        echo "$2 .... failure"
         exit1
     else
-        echo "Installation .... success"
+        echo "$2 .... success"
     fi
 }
 
