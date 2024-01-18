@@ -9,6 +9,11 @@ VALIDATE() {
     fi
 }
 
+DATE=$(date +%F)
+SCRIPT_NAME=$0
+LOGFILE=/temp/$SCRIPT_NAME-$DATE.log
+
+
 USERID=$(id -u)
 
 if [ $USERID -ne 0 ]
