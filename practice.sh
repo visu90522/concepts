@@ -5,7 +5,7 @@ VALIDATE() {
         echo "Installation of mysql is failure"
         exit1
     else
-        echi "Installation of mysql is success"
+        echo "Installation of mysql is success"
     fi
 }
 
