@@ -2,6 +2,6 @@
 
 for i in {1..1oo}
 do
-    echo $id
+    echo $i
 
 done
