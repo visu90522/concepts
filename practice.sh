@@ -1,4 +1,9 @@
 
+
+DATE=$(date +%F)
+SCRIPT_NAME=$0
+LOGFILE=/temp/$SCRIPT_NAME-$DATE.log
+
 VALIDATE() {
     if [ $1 -ne 0 ]
     then
@@ -9,11 +14,6 @@ VALIDATE() {
     fi
 }
 
-DATE=$(date +%F)
-SCRIPT_NAME=$0
-LOGFILE=/temp/$SCRIPT_NAME-$DATE.log
-
-
 USERID=$(id -u)
 
 if [ $USERID -ne 0 ]
@@ -22,11 +22,11 @@ then
     exit1
 fi
 
-yum install mysql -y
+yum install mysql -y &>>$LOGFILE
 
 VALIDATE $? "Installing MYSQL"
 
-yum install postfix -y
+yum install postfix -y &>>$LOGFILE
 
 VALIDATE $? "Installing POSTFIX"
 
