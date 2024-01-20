@@ -21,7 +21,7 @@ else
     echo "Installlation is success"
 fi
 
-yum instak postfix -y
+yum install postfix -y
 
 if [ $? -ne 0 ]
 then
