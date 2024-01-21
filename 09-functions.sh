@@ -1,6 +1,7 @@
 #!/bin/bash
 
 DATE=$(date +%F)
+LOGSDIR=/home/centos/shellscript-logs
 SCRIPT_NAME=$0
 LOGFILE=/tmp/$SCRIPT_NAME-$DATE.log
 
@@ -17,7 +18,7 @@ fi
 }
 
 R="\e[31m"
-G="\e[32m"
+G="\e[32m"                                            
 N="\e[0m"
 
 USERID=$(id -u)
@@ -38,3 +39,7 @@ VALIDATE $? "Installing MySQL"
 yum install postfix -y &>>$LOGFILE
 
 VALIDATE $? "Installing Postfix"
+
+
+##################################################
+
